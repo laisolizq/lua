@@ -1,0 +1,36 @@
+:root {
+
+    /* ========= Colors ========= */
+
+    --bg: #0B1120;
+    --bg-secondary: #111827;
+    --bg-card: #172033;
+
+    --primary: #22D3EE;
+    --primary-hover: #67E8F9;
+
+    --secondary: #14B8A6;
+
+    --text: #F8FAFC;
+    --text-light: #CBD5E1;
+    --text-muted: #94A3B8;
+
+    --border: #2E3A52;
+
+    --success: #22C55E;
+
+    /* ========= Sizes ========= */
+
+    --radius: 14px;
+
+    --container: 1200px;
+
+    --transition: .25s ease;
+
+    --shadow:
+
+        0 0 0 1px rgba(255,255,255,.03),
+
+        0 10px 30px rgba(0,0,0,.35);
+
+}

@@ -1,0 +1,45 @@
+.cv-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:4rem;
+
+}
+
+.timeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2rem;
+
+}
+
+.timeline-item{
+
+    padding-left:2rem;
+
+    border-left:3px solid var(--primary);
+
+}
+
+.company{
+
+    color:var(--primary);
+
+    font-weight:bold;
+
+}
+
+.date{
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+}

@@ -1,0 +1,43 @@
+.button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    padding:.8rem 1.4rem;
+
+    border-radius:999px;
+
+    background:var(--primary);
+
+    color:#001018;
+
+    font-weight:bold;
+
+    transition:var(--transition);
+
+}
+
+.button:hover{
+
+    background:var(--primary-hover);
+
+    transform:translateY(-2px);
+
+}
+
+.grid{
+
+    display:grid;
+
+    gap:2rem;
+
+}
+
+.grid-2{
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+}
