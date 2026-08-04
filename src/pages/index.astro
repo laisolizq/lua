@@ -1,13 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Links from '../components/Links.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout>
-	<Links />
-	<Welcome />
-</Layout>
+<BaseLayout>
+
+<section class="hero section">
+
+    <div class="container">
+
+        <p class="subtitle">
+            SOBRE MI
+        </p>
+
+        <h1>
+            Hola, soy <span class="accent">Laia</span>
+        </h1>
+	</div>
+	
+	<div class="container">
+		<p>
+			Ingeniera de software apasionada por crear, aprender y entender cómo funcionan las cosas.
+		</p>
+		<p>
+			Después de varios años trabajando en blockchain y sistemas distribuidos, ahora exploro nuevas tecnologías y construyo proyectos propios combinando desarrollo, creatividad y curiosidad.
+		</p>
+		<p>
+			Aquí encontrarás mi trayectoria, mis proyectos, mis aprendizajes y todo aquello que voy descubriendo por el camino.
+		</p>
+    </div>
+
+</section>
+
+
+
+</BaseLayout>
