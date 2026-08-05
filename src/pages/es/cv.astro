@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/cv.css";
+const base = import.meta.env.BASE_URL;
 
 const experiences = [
   {
@@ -132,7 +133,7 @@ const skills = {
 
       <div class="cv-buttons">
         <a
-        href="/cv/LaiaSoler_CV_ESP.pdf"
+        href={`${base}cv/LaiaSoler_CV_ESP.pdf`}
         download
         class="download-btn"
         >

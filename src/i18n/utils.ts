@@ -2,13 +2,10 @@ import en from "./en";
 import es from "./es";
 
 
-export function getLanguage(pathname:string){
-
-    if(pathname.startsWith("/es")){
-        return "es";
-    }
-
-    return "en";
+export function getLanguage(pathname: string) {
+    return pathname.includes("/es/") || pathname.endsWith("/es")
+        ? "es"
+        : "en";
 }
 
 export function getTranslations(lang:string){

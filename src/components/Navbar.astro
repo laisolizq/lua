@@ -1,64 +1,96 @@
 ---
-const currentPath = Astro.url.pathname;
-import {
-    getLanguage,
-    getTranslations
-} from "../i18n/utils";
+import { getLanguage, getTranslations } from "../i18n/utils";
 
 const lang = getLanguage(Astro.url.pathname);
 const t = getTranslations(lang);
-const prefix = lang === "es" ? "/es" : "";
+
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+let path = Astro.url.pathname;
+
+if (BASE && BASE !== "/" && path.startsWith(BASE)) {
+  path = path.slice(BASE.length);
+}
+
+if (path === "") path = "/";
+
+const page = lang === "es"
+  ? path.replace(/^\/es/, "") || "/"
+  : path;
+
+function url(p: string) {
+  return `${BASE}${p}`;
+}
+
 const links = [
   {
-      href: `${prefix}/`,
-      label: t.nav.home
+    href: url(lang === "es" ? "/es/" : "/"),
+    label: t.nav.home,
   },
-
   {
-      href: `${prefix}/blog`,
-      label: t.nav.blog
+    href: url(lang === "es" ? "/es/blog" : "/blog"),
+    label: t.nav.blog,
   },
-
   {
-      href: `${prefix}/cv`,
-      label: t.nav.cv
-  }
+    href: url(lang === "es" ? "/es/cv" : "/cv"),
+    label: t.nav.cv,
+  },
 ];
-const languageSwitch =
-    lang === "es"
-    ? Astro.url.pathname.replace("/es","") || "/"
-    : "/es" + Astro.url.pathname;
 
+const languageSwitch = url(
+  lang === "es"
+    ? page
+    : `/es${page === "/" ? "/" : page}`
+);
+
+const current = Astro.url.pathname.replace(/\/$/, "");
 ---
 
 <header class="navbar">
+
   <div class="container navbar-content">
-    <a href={`${prefix}/`} class="logo">
-      <img src="/logo.png" width=30px />
+
+    <a href={links[0].href} class="logo">
+      <img
+        src={url("/logo.png")}
+        alt="Logo"
+        width="30"
+        height="30"
+      />
     </a>
+
     <nav>
+
       <ul class="nav-links">
+
         {
-          links.map(link => (
+          links.map((link) => (
             <li>
               <a
                 href={link.href}
-                class={currentPath === link.href ? "active" : ""}
+                class={
+                  current === link.href.replace(/\/$/, "")
+                    ? "active"
+                    : ""
+                }
               >
                 {link.label}
               </a>
             </li>
           ))
         }
+
       </ul>
+
     </nav>
-    <a href={languageSwitch} class="language-button">
-      {
-          lang === "es"
-          ? "EN"
-          : "ES"
-      }
+
+    <a
+      href={languageSwitch}
+      class="language-button"
+    >
+      {lang === "es" ? "EN" : "ES"}
     </a>
-</div>
+
+  </div>
 
 </header>

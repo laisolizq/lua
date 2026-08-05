@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/index.css";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout>
@@ -37,7 +38,7 @@ import "../styles/index.css";
             <div class="about-photo">
 
                 <img
-                    src="/laia1.jpg"
+                    src=`${base}/laia1.jpg`
                     alt="Laia"
                 />
 
@@ -63,7 +64,7 @@ import "../styles/index.css";
             <div class="about-photo">
 
                 <img
-                    src="/laia2.jpg"
+                    src=`${base}/laia2.jpg`
                     alt="Laia"
                 />
 
