@@ -1,36 +1,100 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/index.css";
 ---
 
 <BaseLayout>
 
-<section class="hero section">
+<section class="section">
 
     <div class="container">
 
-        <p class="subtitle">
-            SOBRE MI
-        </p>
+		<div class="section-title">
 
-        <h1>
-            Hola, soy <span class="accent">Laia</span>
-        </h1>
-	</div>
-	
-	<div class="container">
-		<p>
-			Ingeniera de software apasionada por crear, aprender y entender cómo funcionan las cosas.
-		</p>
-		<p>
-			Después de varios años trabajando en blockchain y sistemas distribuidos, ahora exploro nuevas tecnologías y construyo proyectos propios combinando desarrollo, creatividad y curiosidad.
-		</p>
-		<p>
-			Aquí encontrarás mi trayectoria, mis proyectos, mis aprendizajes y todo aquello que voy descubriendo por el camino.
-		</p>
+			<span class="section-label">
+				Get to know me a little better.
+			</span>
+			<h1>
+				About me
+			</h1>
+		</div>
+
+
+        <div class="about-row">
+
+            <div class="about-text">
+
+                <p>
+					Hi! I'm Laia, a software engineer driven by curiosity. I've always enjoyed understanding how things work, taking them apart mentally and finding better ways to build them again. That curiosity led me to engineering and continues to shape the way I approach both my career and personal projects.
+                </p>
+
+                <p>
+					Over the past few years I've worked on distributed systems and blockchain technology, contributing to large-scale software where reliability, performance and maintainability were essential. It has been an incredible learning experience that strengthened both my technical skills and my ability to collaborate, analyse complex problems and build practical solutions.
+                </p>
+
+            </div>
+
+            <div class="about-photo">
+
+                <img
+                    src="../src/assets/laia1.jpg"
+                    alt="Laia"
+                />
+
+            </div>
+
+        </div>
+
+
+        <div class="about-row reverse">
+
+            <div class="about-text">
+
+                <p>
+					While I enjoy solving technical challenges, what motivates me most is creating products that people genuinely find useful. I love turning ideas into real applications, automating repetitive tasks and building software that makes everyday life a little easier.
+                </p>
+
+                <p>
+					I see myself as an organised, reliable and lifelong learner. I enjoy exploring new technologies, experimenting with personal projects and constantly expanding my knowledge. For me, the best way to learn is by building things, making mistakes and improving with every new challenge.
+                </p>
+
+            </div>
+
+            <div class="about-photo">
+
+                <img
+                    src="../src/assets/laia2.jpg"
+                    alt="Laia"
+                />
+
+            </div>
+
+
+        </div>
+
+
+        <div class="about-row">
+
+            <div class="about-text">
+
+                <p>
+					Outside of software, I also enjoy creating in different ways. I love crafts, crochet and other creative hobbies that allow me to make something with my own hands. That creative side naturally complements my engineering mindset and often inspires the way I approach software design and problem solving.
+                </p>
+
+                <p>
+					I'm also passionate about technology, video games and strategy games. I enjoy challenges that require analytical thinking, planning and continuous improvement. Many of those interests have influenced the way I write software: I enjoy exploring different approaches, refining solutions and paying attention to detail.
+                </p>
+
+                <p>
+					Thanks for stopping by. This website is where I share my experience, projects, ideas and everything I'm learning along the way. I hope you enjoy exploring it as much as I enjoy building it.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>
-
-
 
 </BaseLayout>

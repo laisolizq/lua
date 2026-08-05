@@ -1,21 +1,41 @@
 ---
 const currentPath = Astro.url.pathname;
+import {
+    getLanguage,
+    getTranslations
+} from "../i18n/utils";
 
+const lang = getLanguage(Astro.url.pathname);
+const t = getTranslations(lang);
+const prefix = lang === "es" ? "/es" : "";
 const links = [
-  { href: "/lua", label: "Inicio" },
-  { href: "/lua/blog", label: "Blog" },
-  { href: "/lua/cv", label: "CV" },
+  {
+      href: `${prefix}/`,
+      label: t.nav.home
+  },
+
+  {
+      href: `${prefix}/blog`,
+      label: t.nav.blog
+  },
+
+  {
+      href: `${prefix}/cv`,
+      label: t.nav.cv
+  }
 ];
+const languageSwitch =
+    lang === "es"
+    ? Astro.url.pathname.replace("/es","") || "/"
+    : "/es" + Astro.url.pathname;
+
 ---
 
 <header class="navbar">
   <div class="container navbar-content">
-
-    <a href="/lua" class="logo">
-      <img src="../src/assets/logo.png" width=30px/>
-      <span>Laia</span>
+    <a href={`${prefix}/`} class="logo">
+      <img src="../src/assets/logo.png" width=30px />
     </a>
-
     <nav>
       <ul class="nav-links">
         {
@@ -32,6 +52,13 @@ const links = [
         }
       </ul>
     </nav>
+    <a href={languageSwitch} class="language-button">
+      {
+          lang === "es"
+          ? "EN"
+          : "ES"
+      }
+    </a>
+</div>
 
-  </div>
 </header>

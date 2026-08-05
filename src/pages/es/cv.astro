@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/cv.css";
+---
+
+<BaseLayout>
+    <html lang="es">
+        <head>
+            <title>Currículum</title>
+        </head>
+
+        <body>
+            <section class="section">
+                <div class="container">
+                    <div class="cv-header">
+                        <div>
+                            <p class="subtitle">
+                            Currículum
+                            </p>
+                            <h1>
+                                Laia <span class="accent">Soler</span>
+                            </h1>
+                            <p>
+                                Software Engineer
+                            </p>
+                        </div>
+                        <a class="button" href="/cv.pdf">
+                            Descargar PDF
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item card">
+                            <h3>
+                                Polygon Labs
+                            </h3>
+                            <p class="company">
+                            Software Engineer
+                            </p>
+                            <p class="date">
+                            2021 - 2026
+                            </p>
+                            <p>
+                            Desarrollo del zkEVM ROM.
+                            </p>
+                        </div>
+                        <div class="timeline-item card">
+                            <h3>
+                            Hermez Network
+                            </h3>
+                            <p class="company">
+                            Software Engineer
+                            </p>
+                            <p class="date">
+                            2020 - 2021
+                            </p>
+                            <p>
+                            Desarrollo blockchain.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </body>
+    </html>
+</BaseLayout>
