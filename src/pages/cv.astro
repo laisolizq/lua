@@ -1,65 +1,311 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/cv.css";
+
+
+const experiences = [
+  {
+    company: "Polygon Labs",
+    role: "Protocol Engineer",
+    period: "August 2021 — January 2026",
+    description:
+      "Worked within the protocol team developing scalability solutions based on Zero-Knowledge technologies.",
+    tasks: [
+      "Development and maintenance of zkEVM protocol components.",
+      "Implementation and analysis of distributed systems.",
+      "Solving complex low-level technical problems.",
+      "Development of internal tools for testing and validation.",
+      "Collaboration with international engineering teams."
+    ],
+    technologies: [
+      "Go",
+      "JavaScript",
+      "TypeScript",
+      "Solidity",
+      "Python",
+      "Docker",
+      "Git"
+    ]
+  },
+  {
+    company: "Hermez Network",
+    role: "Software Engineer",
+    period: "2020 — 2021",
+    description:
+      "Worked on blockchain scalability solutions based on Zero-Knowledge Rollups.",
+    tasks: [
+      "Development of blockchain infrastructure software.",
+      "Implementation of protocol features.",
+      "Testing and debugging of critical components.",
+      "Work with Web3 technologies and smart contracts."
+    ],
+    technologies: [
+      "Go",
+      "JavaScript",
+      "TypeScript",
+      "Solidity"
+    ]
+  },
+  {
+    company: "Iden3",
+    role: "Software Engineer",
+    period: "2019 — 2020",
+    description:
+      "Developed decentralized identity solutions within the blockchain ecosystem.",
+    tasks: [
+      "Development of decentralized applications.",
+      "Integration of blockchain technologies.",
+      "Frontend and backend development.",
+      "Research and prototyping of new features."
+    ],
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Solidity"
+    ]
+  }
+];
+
+
+const skills = {
+  "Programming Languages": [
+    "JavaScript",
+    "TypeScript",
+    "Solidity",
+    "Go",
+    "Java",
+    "Python",
+    "C++",
+    "Visual Basic"
+  ],
+
+  "Development": [
+    "React",
+    "Node.js",
+    "Web3",
+    "Smart Contracts",
+    "DApps"
+  ],
+
+  "Databases": [
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB"
+  ],
+
+  "Tools": [
+    "Git",
+    "Bash",
+    "Docker",
+    "Selenium"
+  ],
+
+  "Cloud": [
+    "AWS"
+  ]
+};
 ---
 
 <BaseLayout>
-    <html lang="es">
-        <head>
-            <title>Currículum</title>
-        </head>
 
-        <body>
-            <section class="section">
-                <div class="container">
-                    <div class="cv-header">
-                        <div>
-                            <p class="subtitle">
-                            Currículum
-                            </p>
-                            <h1>
-                                Laia <span class="accent">Soler</span>
-                            </h1>
-                            <p>
-                                Software Engineer
-                            </p>
-                        </div>
-                        <a class="button" href="/cv.pdf">
-                            Descargar PDF
-                        </a>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item card">
-                            <h3>
-                                Polygon Labs
-                            </h3>
-                            <p class="company">
-                            Software Engineer
-                            </p>
-                            <p class="date">
-                            2021 - 2026
-                            </p>
-                            <p>
-                            Desarrollo del zkEVM ROM.
-                            </p>
-                        </div>
-                        <div class="timeline-item card">
-                            <h3>
-                            Hermez Network
-                            </h3>
-                            <p class="company">
-                            Software Engineer
-                            </p>
-                            <p class="date">
-                            2020 - 2021
-                            </p>
-                            <p>
-                            Desarrollo blockchain.
-                            </p>
-                        </div>
-                    </div>
+<main class="cv">
+
+    <header class="cv-header">
+        <h1>
+            Laia Soler Izquierdo
+        </h1>
+        <h2>
+            Telecommunications Technologies and Services Engineer
+        </h2>
+        <p>
+            Specialized in distributed systems, blockchain and software development.
+        </p>
+        <p>
+            Telecommunications Engineer from Universitat Politècnica de Catalunya (UPC)
+            with more than 6 years of experience in software development within the
+            blockchain ecosystem. I have worked in protocol teams developing scalability
+            solutions based on Zero-Knowledge Proofs, combining programming, technical
+            research and complex problem solving.
+        </p>
+        <p>
+            I am currently looking for new professional challenges where I can apply my
+            experience in software development, debugging and technical analysis to
+            projects with real-world impact.
+        </p>
+        <div class="cv-buttons">
+        <a
+            href="/cv/LaiaSoler_CV_ENG.pdf"
+            download
+            class="download-btn"
+        >
+            📄 Download Resume (PDF)
+        </a>
+        </div>
+    </header>
+
+    <section class="cv-section">
+        <h2>
+            Professional Experience
+        </h2>
+        <div class="timeline">
+            {
+            experiences.map((experience) => (
+            <article class="experience-card">
+                <h3>
+                    {experience.company}
+                </h3>
+                <h4>
+                    {experience.role}
+                </h4>
+                <span class="date">
+                {experience.period}
+                </span>
+                <p>
+                    {experience.description}
+                </p>
+                <ul>
+                    {
+                        experience.tasks.map((task) => (
+                        <li>
+                            {task}
+                        </li>
+
+                        ))
+                    }
+                </ul>
+
+                <div class="tags">
+                    {
+                    experience.technologies.map((tech) => (
+                    <span>
+                        {tech}
+                    </span>
+                    ))
+                    }
                 </div>
-            </section>
-        </body>
-    </html>
+            </article>
+            ))
+            }   
+        </div>
+    </section>
+
+    <section class="cv-section">
+        <h2>
+            Education
+        </h2>
+        <article class="education-card">
+            <h3>
+                Universitat Politècnica de Catalunya (UPC)
+            </h3>
+            <h4>
+                Bachelor's Degree in Telecommunications Technologies and Services Engineering
+            </h4>
+            <span>
+                2015 — 2019
+            </span>
+            <p>
+                Specialization in Telematics.
+            </p>
+            <p>
+                Final Degree Project:
+                <strong>
+                    Decentralized Application (DApp) based on Ethereum and React
+                </strong>
+            </p>
+        </article>
+    </section>
+
+    <section class="cv-section">
+        <h2>
+            Technical Skills
+        </h2>
+        <div class="skills-grid">
+            {
+            Object.entries(skills).map(([category, items]) => (
+            <article class="skill-card">
+                <h3>
+                    {category}
+                </h3>
+                <div class="tags">
+                {
+                items.map((skill) => (
+                <span>
+                    {skill}
+                </span>
+                ))
+                }
+                </div>
+            </article>
+            ))
+            }
+        </div>
+    </section>
+
+    <section class="cv-section">
+        <h2>
+            Personal Projects
+        </h2>
+        <article class="project-card">
+            <h3>
+                Magic: The Gathering Card Visualization
+            </h3>
+            <p>
+                Personal project using data from the Scryfall public API to explore and
+                visualize cards through scripts and web tools.
+            </p>
+            <div class="tags">
+                <span>
+                    Python
+                </span>
+                <span>
+                    JavaScript
+                </span>
+                <span>
+                    D3.js
+                </span>
+            </div>
+        </article>
+        <article class="project-card">
+            <h3>
+                Personal Tools and Applications
+            </h3>
+            <p>
+                Development of small projects focused on automation, data visualization
+                and learning new technologies.
+            </p>
+        </article>
+    </section>
+
+    <section class="cv-section">
+        <h2>
+            Languages
+        </h2>
+        <ul class="languages">
+            <li>
+                Spanish — Native
+            </li>
+            <li>
+                Catalan — Native
+            </li>
+            <li>
+                English — Intermediate level (continuously improving)
+            </li>
+        </ul>
+    </section>
+
+    <section class="cv-section contact">
+        <h2>
+            Contact
+        </h2>
+        <p>
+            Available for professional opportunities in software development,
+            data and technology.
+        </p>
+        <p>
+            Open to remote and hybrid positions.
+        </p>
+    </section>
+
+</main>
 </BaseLayout>

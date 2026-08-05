@@ -1,45 +1,397 @@
-.cv-header{
+/* ===========================
+   CV PAGE
+   =========================== */
 
+.cv {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    color: #e6edf3;
+}
+
+
+/* ===========================
+   HEADER
+   =========================== */
+
+.cv-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.cv-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    background: #00d4ff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.cv-header h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #a8b3c7;
+    margin-bottom: 1.5rem;
+}
+
+
+.cv-header p {
+    max-width: 850px;
+    margin: 1rem auto;
+    line-height: 1.7;
+    color: #c9d1d9;
+}
+
+
+/* ===========================
+   SECTIONS
+   =========================== */
+
+.cv-section {
+    margin-bottom: 4rem;
+}
+
+
+.cv-section > h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    position: relative;
+}
+
+
+.cv-section > h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin-top: 0.6rem;
+    background: #00d4ff;
+}
+
+
+/* ===========================
+   EXPERIENCE TIMELINE
+   =========================== */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.experience-card,
+.education-card,
+.project-card,
+.skill-card {
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,212,255,0.15);
+
+    border-radius: 16px;
+
+    padding: 2rem;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.experience-card:hover,
+.education-card:hover,
+.project-card:hover,
+.skill-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: rgba(0,255,157,0.5);
+
+    background: rgba(255,255,255,0.07);
+}
+
+
+
+/* ===========================
+   EXPERIENCE CONTENT
+   =========================== */
+
+
+.experience-card h3,
+.education-card h3,
+.project-card h3 {
+
+    color: #00d4ff;
+
+    font-size: 1.4rem;
+
+    margin-bottom: 0.4rem;
+}
+
+
+.experience-card h4,
+.education-card h4 {
+
+    color: #ffffff;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 0.5rem;
+
+}
+
+
+.date,
+.education-card span {
+
+    display: block;
+
+    color: #8b949e;
+
+    font-size: 0.9rem;
+
+    margin-bottom: 1rem;
+
+}
+
+
+.experience-card p,
+.project-card p,
+.education-card p {
+
+    color: #c9d1d9;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* ===========================
+   LISTS
+   =========================== */
+
+
+.experience-card ul {
+
+    margin: 1rem 0;
+
+    padding-left: 1.5rem;
+
+}
+
+
+.experience-card li {
+
+    margin-bottom: 0.5rem;
+
+    color: #d8dee9;
+
+}
+
+
+
+/* ===========================
+   TAGS
+   =========================== */
+
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.6rem;
+
+    margin-top: 1.2rem;
+
+}
+
+
+.tags span {
+
+    padding: 0.35rem 0.8rem;
+
+    border-radius: 20px;
+
+    background: rgba(0,212,255,0.12);
+
+    border: 1px solid rgba(0,212,255,0.25);
+
+    color: #7ee7ff;
+
+    font-size: 0.85rem;
+
+}
+
+
+
+/* ===========================
+   SKILLS GRID
+   =========================== */
+
+
+.skills-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+
+    gap: 1.5rem;
+
+}
+
+
+.skill-card h3 {
+
+    color: #00ff9d;
+
+    margin-bottom: 1rem;
+
+}
+
+
+
+/* ===========================
+   LANGUAGES
+   =========================== */
+
+
+.languages {
+
+    list-style: none;
+
+    padding: 0;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+}
+
+
+.languages li {
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    padding: 1rem 1.5rem;
+
+    border-radius: 12px;
+
+    color: #d8dee9;
+
+}
+
+
+
+/* ===========================
+   CONTACT
+   =========================== */
+
+.contact {
+
+    text-align: center;
+
+    padding-bottom: 3rem;
+
+}
+
+
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+
+@media (max-width: 768px) {
+
+
+    .cv {
+
+        padding: 2rem 1rem;
+
+    }
+
+
+    .cv-header h1 {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .cv-header h2 {
+
+        font-size: 1.1rem;
+
+    }
+
+
+    .experience-card,
+    .education-card,
+    .project-card,
+    .skill-card {
+
+        padding: 1.3rem;
+
+    }
+
+
+}
+
+/* ===========================
+   DOWNLOAD BUTTON
+   =========================== */
+
+.cv-buttons{
     display:flex;
+    justify-content:center;
+    margin-top:2rem;
+}
 
-    justify-content:space-between;
+.download-btn{
 
+    display:inline-flex;
     align-items:center;
+    gap:.6rem;
 
-    margin-bottom:4rem;
+    padding:.9rem 1.6rem;
 
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    color:#08131d;
+
+    background:linear-gradient(
+        90deg,
+        #00d4ff,
+        #00ff9d
+    );
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
-.timeline{
+.download-btn:hover{
 
-    display:flex;
+    transform:translateY(-3px);
 
-    flex-direction:column;
-
-    gap:2rem;
-
-}
-
-.timeline-item{
-
-    padding-left:2rem;
-
-    border-left:3px solid var(--primary);
-
-}
-
-.company{
-
-    color:var(--primary);
-
-    font-weight:bold;
-
-}
-
-.date{
-
-    color:var(--text-muted);
-
-    font-size:.9rem;
+    box-shadow:
+        0 0 20px rgba(0,212,255,.35);
 
 }

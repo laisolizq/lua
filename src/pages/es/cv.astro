@@ -1,65 +1,344 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/cv.css";
+
+const experiences = [
+  {
+    company: "Polygon Labs",
+    role: "Protocol Engineer",
+    period: "Agosto 2021 — Enero 2026",
+    description:
+      "Trabajo dentro del equipo de protocolo participando en el desarrollo de tecnologías de escalabilidad basadas en Zero-Knowledge.",
+    tasks: [
+      "Desarrollo y mantenimiento de componentes del protocolo zkEVM.",
+      "Implementación y análisis de sistemas distribuidos.",
+      "Resolución de problemas complejos de bajo nivel.",
+      "Desarrollo de herramientas internas para testing y validación.",
+      "Colaboración con equipos técnicos internacionales."
+    ],
+    technologies: [
+      "Go",
+      "JavaScript",
+      "TypeScript",
+      "Solidity",
+      "Python",
+      "Docker",
+      "Git"
+    ]
+  },
+  {
+    company: "Hermez Network",
+    role: "Software Engineer",
+    period: "2020 — 2021",
+    description:
+      "Participación en el desarrollo de soluciones blockchain orientadas a escalabilidad mediante Zero-Knowledge Rollups.",
+    tasks: [
+      "Desarrollo de software para infraestructura blockchain.",
+      "Implementación de funcionalidades del protocolo.",
+      "Testing y debugging de componentes críticos.",
+      "Trabajo con tecnologías Web3 y smart contracts."
+    ],
+    technologies: [
+      "Go",
+      "JavaScript",
+      "TypeScript",
+      "Solidity"
+    ]
+  },
+  {
+    company: "Iden3",
+    role: "Software Engineer",
+    period: "2019 — 2020",
+    description:
+      "Desarrollo de soluciones descentralizadas de identidad dentro del ecosistema blockchain.",
+    tasks: [
+      "Desarrollo de aplicaciones descentralizadas.",
+      "Integración de tecnologías blockchain.",
+      "Desarrollo frontend y backend.",
+      "Investigación y prototipado de nuevas funcionalidades."
+    ],
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Solidity"
+    ]
+  }
+];
+
+const skills = {
+  "Lenguajes": [
+    "JavaScript",
+    "TypeScript",
+    "Solidity",
+    "Go",
+    "Java",
+    "Python",
+    "C++",
+    "Visual Basic"
+  ],
+  "Desarrollo": [
+    "React",
+    "Node.js",
+    "Web3",
+    "Smart Contracts",
+    "DApps"
+  ],
+  "Bases de datos": [
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB"
+  ],
+  "Herramientas": [
+    "Git",
+    "Bash",
+    "Docker",
+    "Selenium"
+  ],
+  "Cloud": [
+    "AWS"
+  ]
+};
+
 ---
 
 <BaseLayout>
-    <html lang="es">
-        <head>
-            <title>Currículum</title>
-        </head>
 
-        <body>
-            <section class="section">
-                <div class="container">
-                    <div class="cv-header">
-                        <div>
-                            <p class="subtitle">
-                            Currículum
-                            </p>
-                            <h1>
-                                Laia <span class="accent">Soler</span>
-                            </h1>
-                            <p>
-                                Software Engineer
-                            </p>
-                        </div>
-                        <a class="button" href="/cv.pdf">
-                            Descargar PDF
-                        </a>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item card">
-                            <h3>
-                                Polygon Labs
-                            </h3>
-                            <p class="company">
-                            Software Engineer
-                            </p>
-                            <p class="date">
-                            2021 - 2026
-                            </p>
-                            <p>
-                            Desarrollo del zkEVM ROM.
-                            </p>
-                        </div>
-                        <div class="timeline-item card">
-                            <h3>
-                            Hermez Network
-                            </h3>
-                            <p class="company">
-                            Software Engineer
-                            </p>
-                            <p class="date">
-                            2020 - 2021
-                            </p>
-                            <p>
-                            Desarrollo blockchain.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </body>
-    </html>
+<main class="cv">
+
+  <header class="cv-header">
+    <h1>Laia Soler Izquierdo</h1>
+
+    <h2>
+      Ingeniera de Tecnologías y Servicios de Telecomunicación
+    </h2>
+
+    <p>
+      Especializada en sistemas distribuidos, blockchain y desarrollo de software.
+    </p>
+
+    <p>
+      Ingeniera de Telecomunicaciones por la Universitat Politècnica de Catalunya
+      (UPC) con más de 6 años de experiencia en desarrollo de software dentro del
+      ecosistema blockchain. He trabajado en equipos de protocolo desarrollando
+      soluciones de escalabilidad basadas en Zero-Knowledge Proofs, combinando
+      programación, investigación técnica y resolución de problemas complejos.
+    </p>
+
+    <p>
+      Actualmente busco nuevos retos profesionales donde aplicar mi experiencia
+      en desarrollo, debugging y análisis técnico en proyectos con impacto real.
+    </p>
+
+      <div class="cv-buttons">
+        <a
+        href="/cv/LaiaSoler_CV_ESP.pdf"
+        download
+        class="download-btn"
+        >
+        📄 Descargar CV (PDF)
+        </a>
+    </div>
+  </header>
+
+
+  <section class="cv-section">
+
+    <h2>Experiencia profesional</h2>
+
+    <div class="timeline">
+
+      {experiences.map((experience) => (
+        <article class="experience-card">
+
+          <h3>{experience.company}</h3>
+
+          <h4>{experience.role}</h4>
+
+          <span class="date">
+            {experience.period}
+          </span>
+
+          <p>
+            {experience.description}
+          </p>
+
+
+          <ul>
+            {experience.tasks.map((task) => (
+              <li>{task}</li>
+            ))}
+          </ul>
+
+
+          <div class="tags">
+            {experience.technologies.map((tech) => (
+              <span>{tech}</span>
+            ))}
+          </div>
+
+        </article>
+      ))}
+
+    </div>
+
+  </section>
+
+
+
+  <section class="cv-section">
+
+    <h2>Formación</h2>
+
+    <article class="education-card">
+
+      <h3>
+        Universitat Politècnica de Catalunya (UPC)
+      </h3>
+
+      <h4>
+        Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación
+      </h4>
+
+      <span>
+        2015 — 2019
+      </span>
+
+      <p>
+        Especialización en Telemática.
+      </p>
+
+      <p>
+        Trabajo Final de Grado:
+        <strong>
+          Aplicación descentralizada (DApp) basada en Ethereum y React
+        </strong>
+      </p>
+
+    </article>
+
+  </section>
+
+
+
+  <section class="cv-section">
+
+    <h2>Conocimientos técnicos</h2>
+
+    <div class="skills-grid">
+
+      {
+        Object.entries(skills).map(([category, items]) => (
+
+          <article class="skill-card">
+
+            <h3>
+              {category}
+            </h3>
+
+            <div class="tags">
+
+              {
+                items.map((skill) => (
+                  <span>{skill}</span>
+                ))
+              }
+
+            </div>
+
+          </article>
+
+        ))
+      }
+
+    </div>
+
+  </section>
+
+
+
+  <section class="cv-section">
+
+    <h2>Proyectos personales</h2>
+
+
+    <article class="project-card">
+
+      <h3>
+        Visualización de cartas de Magic: The Gathering
+      </h3>
+
+      <p>
+        Proyecto personal utilizando datos de la API pública de Scryfall para
+        explorar y visualizar cartas mediante scripts y herramientas web.
+      </p>
+
+      <div class="tags">
+        <span>Python</span>
+        <span>JavaScript</span>
+        <span>D3.js</span>
+      </div>
+
+    </article>
+
+
+    <article class="project-card">
+
+      <h3>
+        Herramientas y aplicaciones personales
+      </h3>
+
+      <p>
+        Desarrollo de pequeños proyectos orientados a automatización,
+        visualización de datos y aprendizaje de nuevas tecnologías.
+      </p>
+
+    </article>
+
+
+  </section>
+
+
+
+  <section class="cv-section">
+
+    <h2>Idiomas</h2>
+
+    <ul class="languages">
+
+      <li>
+        Español — Nativo
+      </li>
+
+      <li>
+        Catalán — Nativo
+      </li>
+
+      <li>
+        Inglés — Nivel intermedio (en formación continua)
+      </li>
+
+    </ul>
+
+  </section>
+
+
+
+  <section class="cv-section contact">
+
+    <h2>Contacto</h2>
+
+    <p>
+      Disponible para oportunidades profesionales en desarrollo de software,
+      datos y tecnología.
+    </p>
+
+    <p>
+      Trabajo remoto o híbrido.
+    </p>
+
+  </section>
+
+
+</main>
 </BaseLayout>
