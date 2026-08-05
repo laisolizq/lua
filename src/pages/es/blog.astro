@@ -1,59 +1,87 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import "../../styles/cv.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import "../../styles/blog.css";
+
+const posts = await getCollection("posts");
+
+const displayedPosts = posts
+.filter(post => post.data.language === "es")
+.sort(
+    (a,b) =>
+    b.data.pubDate.valueOf() -
+    a.data.pubDate.valueOf()
+);
 ---
 
 <BaseLayout>
-    <html lang="es">
-        <head>
-            <title>Blog</title>
-        </head>
 
-        <body>
-            <section class="section">
-                <div class="container">
-                    <div class="cv-header">
-                        <div>
-                            <p class="subtitle">
-                            Posts sobre mis intereses
-                            </p>
-                            <h1>
-                              <span class="accent">Blog</span>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item card">
-                            <h3>
-                                Post 1
-                            </h3>
-                            <p class="company">
-                            Prueba 1
-                            </p>
-                            <p class="date">
-                            01/08/2026
-                            </p>
-                            <p>
-                            Descripción del post 1.
-                            </p>
-                        </div>
-                        <div class="timeline-item card">
-                            <h3>
-                                Post 2
-                            </h3>
-                            <p class="company">
-                            Prueba 2
-                            </p>
-                            <p class="date">
-                            02/08/2026
-                            </p>
-                            <p>
-                            Descripción del post 2.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </body>
-    </html>
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="blog-header"">
+
+<p class="subtitle">
+Posts sobre mis intereses
+</p>
+
+
+<h1>
+<span class="accent">
+Blog
+</span>
+</h1>
+
+</div>
+
+
+
+<div class="timeline">
+
+
+{
+displayedPosts.map(post => (
+
+<a
+class="timeline-item card"
+href={`/es/blog/${post.slug}`}
+>
+
+
+<h3>
+{post.data.title}
+</h3>
+
+
+<p class="date">
+{
+post.data.pubDate.toLocaleDateString(
+"es-ES"
+)
+}
+</p>
+
+
+<p>
+{post.data.description}
+</p>
+
+
+</a>
+
+))
+}
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
 </BaseLayout>

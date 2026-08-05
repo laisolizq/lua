@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import "../../styles/blog.css";
+
+
+export async function getStaticPaths() {
+
+    const posts = await getCollection("posts");
+
+
+    return posts
+        .filter(post => post.data.language === "en")
+        .map(post => ({
+
+            params: {
+                slug: post.id.replace(".md", "")
+            },
+
+            props: {
+                post
+            }
+
+        }));
+
+}
+
+
+const { post } = Astro.props;
+
+
+const { Content } = await render(post);
+
+---
+
+<BaseLayout>
+
+<section class="section">
+
+<div class="container">
+
+<article>
+
+
+<h1>
+{post.data.title}
+</h1>
+
+
+<p class="date">
+
+{
+post.data.pubDate.toLocaleDateString(
+    "en-GB"
+)
+}
+
+</p>
+
+
+<p class="description">
+{post.data.description}
+</p>
+
+
+<Content />
+
+
+</article>
+
+</div>
+
+</section>
+
+</BaseLayout>
