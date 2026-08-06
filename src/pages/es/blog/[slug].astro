@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 
 
     return posts
-        .filter(post => post.data.language === "en")
+        .filter(post => post.data.language === "es")
         .map(post => ({
 
             params: {
@@ -27,13 +27,17 @@ export async function getStaticPaths() {
 
 
 const { post } = Astro.props;
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+const languageSwitch = post.data.translation
+    ? `${BASE}/blog/${post.data.translation}`
+    : `${BASE}/blog/${post.id.replace(".md","")}`;
 
 const { Content } = await render(post);
 
 ---
 
-<BaseLayout>
+<BaseLayout languageSwitch={languageSwitch}>
 
 <section class="section">
 

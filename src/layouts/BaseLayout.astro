@@ -7,12 +7,19 @@ import "../styles/utilities.css";
 import "../styles/navbar.css";
 
 import Navbar from "../components/Navbar.astro";
+
+const { languageSwitch } = Astro.props;
 ---
 
 <html lang="en">
 <meta charset="UTF-8" />
-  <body>
-    <Navbar />
+
+<body>
+
+    <Navbar languageSwitch={languageSwitch} />
+
     <slot />
-  </body>
+
+</body>
+
 </html>
